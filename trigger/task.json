@@ -1,0 +1,48 @@
+{
+    "id": "390ABD39-9B02-4753-A8A6-C09CC638347A",
+    "name": "PullTrigger",
+    "friendlyName": "Trigger on Pull Request",
+    "description": "Trigger on a Pull Request aka PR",
+    "helpMarkDown": "[More Information](https://github.com/pct-tr22/vsoext/README.md)",
+    "category": "Utility",
+    "visibility": [
+                  "Build",
+                  "Release"
+                  ],    
+    "author": "Shawn Cicoria",
+    "version": {
+        "Major": 0,
+        "Minor": 0,
+        "Patch": 1
+    },
+    "demands": [
+        "node.js"
+    ],
+    "minimumAgentVersion": "1.83.0",
+    "groups": [
+        {
+            "name":"advanced",
+            "displayName":"Advanced",
+            "isExpanded":false
+        }
+    ],
+    "inputs": [
+        {
+            "name": "filename",
+            "type": "filePath",
+            "label": "Path",
+            "defaultValue":"",
+            "required": true,
+            "helpMarkDown": "Path of the cmd or bat script to execute. Should be fully qualified path or relative to the default working directory."
+        }
+    ],
+    "instanceNameFormat": "Run script $(filename)",
+    "execution": {
+        "Node": {
+            "target": "foobar.js",
+            "argumentFormat": "",
+            "workingDirectory": "$(workingFolder)",
+            "modifyEnvironment": "$(modifyEnvironment)"
+        }
+    }
+}

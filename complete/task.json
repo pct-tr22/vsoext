@@ -1,0 +1,48 @@
+{
+    "id": "74EA453D-34D7-4989-AFCF-A42C43DF1AD4",
+    "name": "PullComplet",
+    "friendlyName": "Complete Notifocation of Build from Pull Request",
+    "description": "Update GitHub Status after Build",
+    "helpMarkDown": "[More Information](https://github.com/pct-tr22/vsoext/README.md)",
+    "category": "Utility",
+    "visibility": [
+                  "Build",
+                  "Release"
+                  ],    
+    "author": "Shawn Cicoria",
+    "version": {
+        "Major": 0,
+        "Minor": 0,
+        "Patch": 1
+    },
+    "demands": [
+        "node.js"
+    ],
+    "minimumAgentVersion": "1.83.0",
+    "groups": [
+        {
+            "name":"advanced",
+            "displayName":"Advanced",
+            "isExpanded":false
+        }
+    ],
+    "inputs": [
+        {
+            "name": "filename",
+            "type": "filePath",
+            "label": "Path",
+            "defaultValue":"",
+            "required": true,
+            "helpMarkDown": "Path of the cmd or bat script to execute. Should be fully qualified path or relative to the default working directory."
+        }
+    ],
+    "instanceNameFormat": "Run script $(filename)",
+    "execution": {
+        "Node": {
+            "target": "foobar.js",
+            "argumentFormat": "",
+            "workingDirectory": "$(workingFolder)",
+            "modifyEnvironment": "$(modifyEnvironment)"
+        }
+    }
+}

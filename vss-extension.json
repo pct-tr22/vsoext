@@ -1,0 +1,69 @@
+{
+  "manifestVersion": 1,
+  "id": "vsohelper-trigger",
+  "name": "PartnerCatalyst-msft",
+  "version": "0.0.1",
+  "publisher": "cicorias",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "scopes": [
+    "vso.build",
+    "vso.build_execute",
+    "vso.test",
+    "vso.test_write"
+  ],
+  "description": "For building upon GitHub Pull Request.",
+  "categories": [
+    "Build and release"
+  ],
+  "tags": [
+    "github",
+    "git",
+    "pullrequest",
+    "pr"
+  ],
+  "content": {
+    "details": {
+      "path": "README.md"
+    },
+    "license": {
+      "path": "LICENSE.md"
+    }
+  },
+  "icons": {
+    "default": "icon.png"
+  },
+  "files": [
+    {
+      "path": "trigger"
+    },
+    {
+      "path": "complete"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "vsohelper-task-trigger",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "trigger"
+      }
+    },
+    {
+      "id": "vsohelper-task-complete",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "complete"
+      }
+    }
+  ]
+}
