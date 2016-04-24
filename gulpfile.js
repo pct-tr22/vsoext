@@ -4,11 +4,24 @@ var exec = require('child_process').exec;
 
 gulp.task('default', ['npm', 'lib']);
 
-gulp.task('npm', function() {
-  gulp.src(['node_modules/**/*'])
-    .pipe(gulp.dest('complete/node_modules'))
-    .pipe(gulp.dest('trigger/node_modules'));
+// gulp.task('npm', function() {
+//   gulp.src(['node_modules/**/*'])
+//     .pipe(gulp.dest('complete/node_modules'))
+//     .pipe(gulp.dest('trigger/node_modules'));
+// });
+
+
+var npmcmd = 'cd complete && npm install && cd ../trigger && npm install';
+
+gulp.task('npm', function(cb){
+  exec(npmcmd, function (err, stdout, stderr) {
+    console.log(stdout);
+    console.error(stderr);
+    cb(err);
+  });  
 });
+
+
 
 gulp.task('lib', function() {
   gulp.src(['lib/**/*'])
@@ -25,7 +38,7 @@ var vsixcmd = 'export LC_CTYPE=C && export LANG=C && tfx extension create --mani
 
 gulp.task('vsix', function(cb){
   exec(vsixcmd, function (err, stdout, stderr) {
-    //console.log(stdout);
+    console.log(stdout);
     console.error(stderr);
     cb(err);
   });  

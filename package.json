@@ -19,7 +19,6 @@
   "dependencies": {
     "debug": "^2.2.0",
     "git-controller": "github:pct-tr22/git-controller#moremethods",
-    "superagent": "^1.8.3",
     "vsts-task-lib": "^0.7.1"
   },
   "devDependencies": {
