@@ -1,0 +1,30 @@
+{
+  "name": "vsoext",
+  "version": "1.0.0",
+  "description": "Provides an example implementation of a task(s) that can deal with a GitHub pull request, build it, and handle providing the status to GitHub via the GitHub API.",
+  "main": "index.js",
+  "scripts": {
+    "create-vsix": "export LC_CTYPE=C && export LANG=C && tfx extension create --manifest-globs vss-extension.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pct-tr22/vsoext.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pct-tr22/vsoext/issues"
+  },
+  "homepage": "https://github.com/pct-tr22/vsoext#readme",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "git-controller": "github:pct-tr22/git-controller#moremethods",
+    "superagent": "^1.8.3",
+    "vsts-task-lib": "^0.7.1"
+  },
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-exec": "^2.1.2"
+  }
+}

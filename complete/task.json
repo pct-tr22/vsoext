@@ -1,14 +1,14 @@
 {
-    "id": "74EA453D-34D7-4989-AFCF-A42C43DF1AD4",
-    "name": "PullComplet",
-    "friendlyName": "Complete Notifocation of Build from Pull Request",
-    "description": "Update GitHub Status after Build",
+    "id": "91d51e4f-29b4-4368-9c40-4e707d77438d",
+    "name": "CompleteBuild",
+    "friendlyName": "Notify on Build Complete",
+    "description": "Send a notification that Build is complete",
     "helpMarkDown": "[More Information](https://github.com/pct-tr22/vsoext/README.md)",
     "category": "Utility",
     "visibility": [
-                  "Build",
-                  "Release"
-                  ],    
+        "Build",
+        "Release"
+    ],
     "author": "Shawn Cicoria",
     "version": {
         "Major": 0,
@@ -19,30 +19,21 @@
         "node.js"
     ],
     "minimumAgentVersion": "1.83.0",
-    "groups": [
-        {
-            "name":"advanced",
-            "displayName":"Advanced",
-            "isExpanded":false
-        }
-    ],
+    "instanceNameFormat": "Trigger Build on PR",
     "inputs": [
         {
-            "name": "filename",
-            "type": "filePath",
-            "label": "Path",
-            "defaultValue":"",
+            "name": "status",
+            "type": "boolean",
+            "label": "Enable for Failure Notify",
+            "defaultValue": "false",
             "required": true,
-            "helpMarkDown": "Path of the cmd or bat script to execute. Should be fully qualified path or relative to the default working directory."
+            "helpMarkDown": "Checked this will set the status to failed"
         }
     ],
-    "instanceNameFormat": "Run script $(filename)",
     "execution": {
         "Node": {
-            "target": "foobar.js",
-            "argumentFormat": "",
-            "workingDirectory": "$(workingFolder)",
-            "modifyEnvironment": "$(modifyEnvironment)"
+            "target": "complete.js",
+            "argumentFormat": ""
         }
     }
 }
