@@ -6,20 +6,30 @@
     "helpMarkDown": "[More Information](https://github.com/pct-tr22/vsoext/README.md)",
     "category": "Utility",
     "visibility": [
-                  "Build",
-                  "Release"
-                  ],    
+        "Build",
+        "Release"
+    ],
     "author": "Shawn Cicoria",
     "version": {
         "Major": 0,
         "Minor": 0,
-        "Patch": 1
+        "Patch": 19
     },
     "demands": [
         "node.js"
     ],
     "minimumAgentVersion": "1.83.0",
     "instanceNameFormat": "Trigger Build on PR",
+    "inputs": [
+        {
+            "name": "vsohelperurl",
+            "type": "string",
+            "label": "Url of VsoHelper site",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "This is the URL of the VsoHelper site"
+        }
+    ],
     "execution": {
         "Node": {
             "target": "run.js",
@@ -27,4 +37,3 @@
         }
     }
 }
-    

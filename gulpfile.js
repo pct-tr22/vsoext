@@ -2,14 +2,9 @@ var gulp = require('gulp');
 var del = require('del');
 var exec = require('child_process').exec;
 
-gulp.task('default', ['npm', 'lib']);
-
-// gulp.task('npm', function() {
-//   gulp.src(['node_modules/**/*'])
-//     .pipe(gulp.dest('complete/node_modules'))
-//     .pipe(gulp.dest('trigger/node_modules'));
-// });
-
+gulp.task('default', ['npm', 'lib'], function(cb){
+  cb();
+});
 
 var npmcmd = 'cd complete && npm install && cd ../trigger && npm install';
 
@@ -21,14 +16,11 @@ gulp.task('npm', function(cb){
   });  
 });
 
-
-
 gulp.task('lib', function() {
   gulp.src(['lib/**/*'])
     .pipe(gulp.dest('complete/libc'))
     .pipe(gulp.dest('trigger/libc'));
 });
-
 
 gulp.task('clean', function(cb){
   del(['complete/libc', 'complete/node_modules', 'trigger/libc', 'trigger/node_modules'], cb);

@@ -13,21 +13,29 @@
     "version": {
         "Major": 0,
         "Minor": 0,
-        "Patch": 1
+        "Patch": 19
     },
     "demands": [
         "node.js"
     ],
     "minimumAgentVersion": "1.83.0",
-    "instanceNameFormat": "Trigger Build on PR",
+    "instanceNameFormat": "Notify VsoHelper",
     "inputs": [
         {
             "name": "status",
             "type": "boolean",
-            "label": "Enable for Failure Notify",
-            "defaultValue": "false",
+            "label": "Fail the jobs...",
+            "defaultValue": false,
             "required": true,
             "helpMarkDown": "Checked this will set the status to failed"
+        },
+        {
+            "name": "vsohelperurl",
+            "type": "string",
+            "label": "Url of VsoHelper site",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "This is the URL of the VsoHelper site"
         }
     ],
     "execution": {
