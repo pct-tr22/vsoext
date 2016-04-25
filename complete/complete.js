@@ -1,12 +1,20 @@
 var debug = require('./libc/debug')
 var vsocheckout = require('./libc/index');
-var t1 = require('vsts-task-lib/task')
+var tl = require('vsts-task-lib/task')
 
-var taskStatus = t1.getBoolInput('status');
+var taskStatus = tl.getBoolInput('status');
 
-var buildStatus = taskStatus ? "failure" : "success";
+var overrideStatus = tl.getBoolInput('overridestatus');
 
-var url = t1.getInput('vsohelperurl', true); // process.env.VSOHELPER_URL;
+var buildStatus;
+if (overrideStatus){
+  buildStatus = taskStatus ? "failure" : "success";    
+}
+else {
+  buildStatus = process.env['build.status'];    
+}
+
+var url = tl.getInput('vsohelperurl', true);
 var buildNumber = process.env['build.buildNumber'];
 
 debug('from env: url and buildid: ')

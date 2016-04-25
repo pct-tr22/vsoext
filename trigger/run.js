@@ -1,9 +1,9 @@
 var debug = require('./libc/debug');
 
 var vsocheckout = require('./libc/index');
-var t1 = require('vsts-task-lib/task')
+var tl = require('vsts-task-lib/task')
 
-var url = t1.getInput('vsohelperurl', true); // process.env.VSOHELPER_URL;
+var url = tl.getInput('vsohelperurl', true); // process.env.VSOHELPER_URL;
 var buildNumber = process.env['build.buildNumber'];
 
 debug('from env: url and buildid: ')

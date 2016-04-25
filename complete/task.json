@@ -13,7 +13,7 @@
     "version": {
         "Major": 0,
         "Minor": 0,
-        "Patch": 19
+        "Patch": 20
     },
     "demands": [
         "node.js"
@@ -21,6 +21,14 @@
     "minimumAgentVersion": "1.83.0",
     "instanceNameFormat": "Notify VsoHelper",
     "inputs": [
+        {
+            "name": "overridestatus",
+            "type": "boolean",
+            "label": "Use the status code below for debug...",
+            "defaultValue": false,
+            "required": true,
+            "helpMarkDown": "Checked this will use the status from below instead of $(build.status)"
+        },
         {
             "name": "status",
             "type": "boolean",
