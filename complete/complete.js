@@ -32,6 +32,9 @@ if (! buildStatus) {
 vsocheckout.setStatus(url, buildNumber, buildStatus, function(err, result){
     if (err) console.error(err);
     else {
+        if (overrideStatus && buildStatus === "failure"){
+            tl.setResult(tl.TaskResult.Failed, "forced to error situation");
+        }
         debug('done setting status...');
     }
 });
